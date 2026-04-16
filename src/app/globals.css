@@ -1,0 +1,343 @@
+@import "tailwindcss";
+
+:root {
+  --page-bg: #f4f6fb;
+  --page-bg-soft: #eef2f7;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --surface-3: #edf2f7;
+  --navy: #0f172a;
+  --navy2: #ffffff;
+  --navy3: #eef2f7;
+  --cyan: #14b8c4;
+  --cyan-strong: #0ea5b7;
+  --cyan-glow: rgba(20, 184, 196, 0.12);
+  --gold: #d39a31;
+  --gold-glow: rgba(211, 154, 49, 0.12);
+  --red: #dc5b5b;
+  --green: #1aa56c;
+  --text: #172033;
+  --muted: #64748b;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+  --card: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,249,252,0.96));
+  --card-border: rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 18px 46px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.11);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 196, 0.07), transparent 24%),
+    radial-gradient(circle at top right, rgba(15, 23, 42, 0.035), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, var(--page-bg) 100%);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(20, 184, 196, 0.22);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.28);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.42); }
+
+.hm-page {
+  position: relative;
+  z-index: 1;
+}
+
+.hm-card,
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.hm-card:hover,
+.card:hover {
+  border-color: rgba(20, 184, 196, 0.18);
+  box-shadow: var(--shadow-md);
+}
+
+.card-flat {
+  background: var(--surface-2);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 22px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+}
+
+.hm-card-link,
+.card-link {
+  cursor: pointer;
+}
+
+.hm-card-link:hover,
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.hm-btn-primary,
+.btn-primary {
+  background: linear-gradient(180deg, #101938 0%, #0b1430 100%);
+  color: white;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  padding: 0.95rem 1.35rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+.hm-btn-primary:hover,
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.2);
+}
+
+.hm-btn-primary:disabled,
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.hm-btn-secondary,
+.btn-secondary {
+  background: rgba(255,255,255,0.82);
+  color: var(--text);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.hm-btn-secondary:hover,
+.btn-secondary:hover {
+  border-color: rgba(15, 23, 42, 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.hm-btn-gold {
+  background: linear-gradient(180deg, #f1c15a, #d99b29);
+  color: var(--navy);
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 24px rgba(211, 154, 49, 0.22);
+}
+
+.hm-input,
+input:not([type='checkbox']):not([type='radio']):not([type='range']),
+select,
+textarea {
+  width: 100%;
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  color: var(--text);
+  outline: none;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  font-size: 0.96rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.hm-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(20, 184, 196, 0.45);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(20, 184, 196, 0.10);
+}
+
+.hm-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+.hm-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55rem;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.hm-kpi {
+  text-align: left;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.hm-kpi-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--text);
+}
+
+.hm-kpi-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 0.65rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.hm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.hm-badge-green { background: rgba(26,165,108,0.10); color: #14895a; }
+.hm-badge-red { background: rgba(220,91,91,0.10); color: #c24141; }
+.hm-badge-cyan { background: rgba(20,184,196,0.10); color: #0f8f99; }
+.hm-badge-gold { background: rgba(211,154,49,0.14); color: #a46e11; }
+
+.hm-progress {
+  height: 8px;
+  background: rgba(15,23,42,0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.hm-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.hm-scale-btn {
+  min-width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(15,23,42,0.08);
+  background: rgba(255,255,255,0.84);
+  color: var(--muted);
+}
+.hm-scale-btn:hover {
+  border-color: rgba(20,184,196,0.35);
+  background: rgba(20,184,196,0.08);
+  color: var(--text);
+}
+.hm-scale-btn.active {
+  border-color: rgba(15,23,42,0.14);
+  background: linear-gradient(180deg, #101938 0%, #0b1430 100%);
+  color: white;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.12);
+}
+
+.hm-section {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.glow-cyan {
+  box-shadow: var(--shadow-sm), 0 0 0 1px rgba(20,184,196,0.08);
+}
+
+.fade-in,
+.hm-fade {
+  animation: fadeIn 0.42s ease-out forwards;
+}
+.hm-fade-1 { animation-delay: 0.05s; opacity: 0; }
+.hm-fade-2 { animation-delay: 0.1s; opacity: 0; }
+.hm-fade-3 { animation-delay: 0.15s; opacity: 0; }
+.hm-fade-4 { animation-delay: 0.2s; opacity: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.35; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 1.35s ease-in-out infinite;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(20,184,196,0.05), transparent 20%),
+    radial-gradient(circle at 90% 12%, rgba(15,23,42,0.03), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(20,184,196,0.04), transparent 22%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  .hm-kpi-value { font-size: 2rem; }
+  .hm-scale-btn { min-width: 38px; height: 38px; font-size: 0.8rem; }
+  .hm-card,
+  .card { border-radius: 22px; }
+}
